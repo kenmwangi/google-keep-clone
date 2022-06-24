@@ -22,21 +22,31 @@ engine-strict=true
 ```
 NB: `lts/gallium` - represents node 16.x
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## ESLint
 
-To learn more about Next.js, take a look at the following resources:
+`.eslintrc.json`
+The content of the file should be 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+{
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
+  }
+}
+```
+Testing the config involves running:
 
-## Deploy on Vercel
+`npm run lint` or if using yarn `yarn lint`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Prettier
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For Automatic formatting of our files
+
+Adding two files `.prettierrc` and `.prettierignore` in root project
